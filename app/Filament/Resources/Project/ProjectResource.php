@@ -31,6 +31,7 @@ class ProjectResource extends Resource
             Pages\ManageTaskKanbanBoard::class,
             Pages\ManageTasks::class,
             Pages\ManageSprints::class,
+            Pages\ManageUsers::class,
 
         ]);
     }
@@ -81,6 +82,7 @@ class ProjectResource extends Resource
             'tasks' => Pages\ManageTasks::route('/{record:url}/tasks'),
             'kanban' => Pages\ManageTaskKanbanBoard::route('/{record:url}/kanban'),
             'sprints' => Pages\ManageSprints::route('/{record:url}/sprints'),
+            'users' => Pages\ManageUsers::route('/{record:url}/users'),
         ];
     }
 }

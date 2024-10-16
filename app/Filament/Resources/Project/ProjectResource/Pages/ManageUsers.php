@@ -12,24 +12,24 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class ManageTasks extends ManageRelatedRecords
+class ManageUsers extends ManageRelatedRecords
 {
     protected static string $resource = ProjectResource::class;
 
-    protected static string $relationship = 'tasks';
+    protected static string $relationship = 'users';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function getNavigationLabel(): string
     {
-        return 'Tasks';
+        return 'Users';
     }
 
     public function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
+                Forms\Components\TextInput::make('email')
                     ->required()
                     ->maxLength(255),
             ]);
@@ -38,48 +38,22 @@ class ManageTasks extends ManageRelatedRecords
     public function table(Table $table): Table
     {
         return $table
-            ->recordTitleAttribute('name')
+            ->recordTitleAttribute('email')
             ->columns([
-
-                Tables\Columns\TextColumn::make('name')
-                    ->searchable(),
-
-
-                Tables\Columns\TextColumn::make('user.name')
-                    ->searchable(),
-
-                Tables\Columns\TextColumn::make('priority')->badge(),
-                Tables\Columns\TextColumn::make('status')->badge(),
-
-                Tables\Columns\TextColumn::make('start')
-                    ->dateTime()
-                    ->sortable(),
-
-                Tables\Columns\TextColumn::make('end')
-                    ->dateTime()
-                    ->sortable(),
-
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-
-
+                Tables\Columns\TextColumn::make('name'),
+                Tables\Columns\TextColumn::make('email'),
             ])
             ->filters([
                 //
             ])
             ->headerActions([
                 Tables\Actions\CreateAction::make(),
+                Tables\Actions\AssociateAction::make(),
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DissociateAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
