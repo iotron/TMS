@@ -16,5 +16,9 @@ class UserSeeder extends Seeder
         $demoUser = User::factory()
             ->create(['email' => 'user@example.com']);
 
+        // Extra Users
+
+        User::factory(20)->create();
+
     }
 }

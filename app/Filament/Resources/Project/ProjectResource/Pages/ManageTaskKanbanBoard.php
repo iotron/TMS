@@ -6,6 +6,9 @@ use App\Casts\StatusCast;
 use App\Filament\Resources\Project\ProjectResource;
 use App\Models\Project\Project;
 use App\Models\Project\Task;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Form;
+use Filament\Forms;
 use Filament\Resources\Pages\Concerns\HasRelationManagers;
 use Filament\Resources\Pages\Page;
 use Illuminate\Database\Eloquent\Model;
@@ -23,32 +26,23 @@ class ManageTaskKanbanBoard extends Page
 
     use HasEditRecordModal;
     use HasStatusChange;
-    use HasRelationManagers;
 
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
     protected static string $relationship = 'tasks';
 
     #[Locked]
     public Model | int | string | null $record;
+    protected static string $model = Task::class;
+    protected static string $statusEnum = StatusCast::class;
+    protected static string $recordTitleAttribute = 'name';
+    protected static string $recordStatusAttribute = 'status';
 
     protected static string $view = 'filament-kanban::kanban-board';
-    //   protected static string $view = 'filament.resources.kanban-resource-page';
-
     protected static string $headerView = 'filament-kanban::kanban-header';
-
     protected static string $recordView = 'filament-kanban::kanban-record';
-
     protected static string $statusView = 'filament-kanban::kanban-status';
-
     protected static string $scriptsView = 'filament-kanban::kanban-scripts';
 
-    protected static string $model = Task::class;
-
-    protected static string $statusEnum = StatusCast::class;
-
-    protected static string $recordTitleAttribute = 'name';
-
-    protected static string $recordStatusAttribute = 'status';
 
     public static function getNavigationLabel(): string
     {
@@ -121,6 +115,30 @@ class ManageTaskKanbanBoard extends Page
     {
         return Task::where('project_id',$this->record->id);
     }
+
+
+    protected function getEditModalTitle(): string
+    {
+        return 'Edit Task';
+    }
+    public function form(Form $form): Form
+    {
+        return $form
+            ->columns()
+            ->schema($this->getEditModalFormSchema($this->editModalRecordId))
+            ->statePath('editModalFormState')
+            ->model($this->editModalRecordId ? static::$model::find($this->editModalRecordId) : static::$model);
+    }
+
+    protected function getEditModalFormSchema(?int $recordId): array
+    {
+        return [
+            TextInput::make(static::$recordTitleAttribute)->columnSpanFull(),
+            Forms\Components\DatePicker::make('start'),
+            Forms\Components\DatePicker::make('end')
+        ];
+    }
+
 
 
 }

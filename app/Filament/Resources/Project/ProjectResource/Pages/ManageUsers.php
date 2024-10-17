@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Project\ProjectResource\Pages;
 
 use App\Filament\Resources\Project\ProjectResource;
+use App\Models\User;
 use Filament\Actions;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -48,12 +49,20 @@ class ManageUsers extends ManageRelatedRecords
             ])
             ->headerActions([
                 Tables\Actions\CreateAction::make(),
-                Tables\Actions\AssociateAction::make(),
+                Tables\Actions\AttachAction::make()
+                    ->recordSelectSearchColumns(['name','email'])
+                    ->preloadRecordSelect()
+                    ->form(fn (Tables\Actions\AttachAction $action): array => [
+                        $action->getRecordSelect()->placeholder('Select an user'),
+                        Forms\Components\Select::make('role')
+                            ->options([])
+                            ->required(),
+                    ]),
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DissociateAction::make(),
+                Tables\Actions\DetachAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([

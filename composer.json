@@ -8,6 +8,7 @@
         "php": "^8.2",
         "awcodes/filament-tiptap-editor": "^3.4",
         "filament/filament": "^3.2",
+        "guava/calendar": "^1.8",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
         "mokhosh/filament-kanban": "^2.9"

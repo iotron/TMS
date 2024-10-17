@@ -4,6 +4,7 @@ namespace App\Filament\Resources\Project;
 
 use App\Filament\Resources\Project\ProjectResource\Pages;
 use App\Filament\Resources\Project\ProjectResource\RelationManagers;
+use App\Filament\Resources\Project\ProjectResource\Widgets\TaskTimelineWidget;
 use App\Models\Project\Project;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -29,6 +30,7 @@ class ProjectResource extends Resource
             Pages\ViewProject::class,
            // Pages\EditProject::class,
             Pages\ManageTaskKanbanBoard::class,
+            Pages\ManageTaskTimeline::class,
             Pages\ManageTasks::class,
             Pages\ManageSprints::class,
             Pages\ManageUsers::class,
@@ -72,6 +74,13 @@ class ProjectResource extends Resource
         ];
     }
 
+    public static function getWidgets(): array
+    {
+        return [
+            TaskTimelineWidget::class
+        ];
+    }
+
     public static function getPages(): array
     {
         return [
@@ -83,6 +92,7 @@ class ProjectResource extends Resource
             'kanban' => Pages\ManageTaskKanbanBoard::route('/{record:url}/kanban'),
             'sprints' => Pages\ManageSprints::route('/{record:url}/sprints'),
             'users' => Pages\ManageUsers::route('/{record:url}/users'),
+            'timeline' => Pages\ManageTaskTimeline::route('/{record:url}/timeline'),
         ];
     }
 }
