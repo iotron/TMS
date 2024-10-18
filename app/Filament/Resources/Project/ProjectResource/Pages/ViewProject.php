@@ -3,6 +3,8 @@
 namespace App\Filament\Resources\Project\ProjectResource\Pages;
 
 use App\Filament\Resources\Project\ProjectResource;
+use App\Infolists\Components\TiptapEntry;
+use Awcodes\Scribble\ScribbleEntry;
 use Filament\Actions;
 use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\TextEntry;
@@ -39,7 +41,20 @@ class ViewProject extends ViewRecord
                         TextEntry::make('status')->badge(),
                         TextEntry::make('start')->dateTime(),
                         TextEntry::make('end')->dateTime(),
-                        TextEntry::make('description')->columnSpanFull()->alignJustify(),
+                        TextEntry::make('description')
+                            ->helperText('This is Original Entry Output, not working without css')
+                            ->columnSpanFull()
+                            ->alignJustify()->html(),
+
+
+//                         Custom Entry For Css Loading
+                        TiptapEntry::make('description')
+                            ->helperText('This is a custom entry output')
+                            ->columnSpanFull()
+                            ->alignJustify(),
+
+
+
                     ]),
 
             ]);

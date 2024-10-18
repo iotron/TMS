@@ -6,12 +6,15 @@ use App\Filament\Resources\Project\ProjectResource\Pages;
 use App\Filament\Resources\Project\ProjectResource\RelationManagers;
 use App\Filament\Resources\Project\ProjectResource\Widgets\TaskTimelineWidget;
 use App\Models\Project\Project;
+use Awcodes\Scribble\Profiles\MinimalProfile;
+use Awcodes\Scribble\ScribbleEditor;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Pages\SubNavigationPosition;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use FilamentTiptapEditor\TiptapEditor;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Resources\Pages\Page;
@@ -19,6 +22,7 @@ use Filament\Resources\Pages\Page;
 class ProjectResource extends Resource
 {
     protected static ?string $model = Project::class;
+    protected static ?string $slug = 'projects';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     protected static ?string $recordRouteKeyName = 'url';
@@ -51,8 +55,10 @@ class ProjectResource extends Resource
                 Forms\Components\TextInput::make('url')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\Textarea::make('description')
+
+                TiptapEditor::make('description')
                     ->columnSpanFull(),
+
                 Forms\Components\DateTimePicker::make('start'),
                 Forms\Components\DateTimePicker::make('end'),
                 Forms\Components\TextInput::make('status')
