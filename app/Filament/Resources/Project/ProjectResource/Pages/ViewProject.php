@@ -41,23 +41,34 @@ class ViewProject extends ViewRecord
                         TextEntry::make('status')->badge(),
                         TextEntry::make('start')->dateTime(),
                         TextEntry::make('end')->dateTime(),
-                        TextEntry::make('description')
-                            ->helperText('This is Original Entry Output, not working without css')
-                            ->columnSpanFull()
-                            ->alignJustify()->html(),
+
 
 
 //                         Custom Entry For Css Loading
-                        TiptapEntry::make('description')
-                            ->helperText('This is a custom entry output')
-                            ->columnSpanFull()
-                            ->alignJustify(),
+
 
 
 
                     ]),
 
+                Section::make('Default Output')
+                    ->schema([
+                        TextEntry::make('description')
+                            ->columnSpanFull()
+                            ->alignJustify()->html(),
+                    ]),
+
+                Section::make('Custom Output')
+                    ->schema([
+                        TiptapEntry::make('description')
+                            ->columnSpanFull()
+                            ->alignJustify(),
+                    ])
+
             ]);
+
+
+
     }
 
 

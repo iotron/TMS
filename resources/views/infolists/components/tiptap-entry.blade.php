@@ -252,6 +252,118 @@
 
 
 
+    /*Code Block Start*/
+
+    pre {
+        padding: .75rem 1rem;
+        border-radius: .25rem;
+        font-size: .875rem;
+
+        code {
+            border-radius: 0;
+            padding-inline: 0;
+        }
+    }
+
+    code {
+        background-color: theme("colors.gray.300");
+        border-radius: 0.25rem;
+        padding-inline: 0.25rem;
+    }
+
+    pre.hljs {
+        direction: ltr;
+        code {
+            background-color: transparent;
+        }
+    }
+    /*Code In Dark Mode*/
+
+    .dark {
+        code {
+            background-color: theme("colors.gray.800");
+        }
+    }
+
+    /*Code Block End*/
+
+
+
+    /*Image Css Start*/
+
+    img {
+        border: dashed 2px transparent;
+
+        &.ProseMirror-selectednode {
+            border-radius: theme("borderRadius.DEFAULT");
+            outline-offset: 2px;
+            outline: theme("colors.gray.900") dashed 2px;
+        }
+    }
+
+    img {
+        display: inline-block;
+    }
+
+    /*Dark Mode Image*/
+
+    .dark {
+        img.ProseMirror-selectednode {
+            outline-color: theme("colors.gray.400");
+        }
+    }
+
+
+
+    /*Image Css End*/
+
+
+    /*Text CSS Start*/
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: bold;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+        line-height: 1.1;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        line-height: 1.1;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+        line-height: 1.25;
+    }
+
+    h4 {
+        font-size: 1.125rem;
+    }
+
+    .lead {
+        font-size: 1.375rem;
+        line-height: 1.3;
+    }
+
+    small {
+        font-size: 0.75rem;
+    }
+    /*Text Css End*/
+
+
+    /*Tiptap Editor Specific*/
+
+
+
+
+    /*Tiptap Editor Specific*/
 
 
 
