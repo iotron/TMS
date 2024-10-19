@@ -1,15 +1,6 @@
-<x-dynamic-component :component="$getEntryWrapperView()" :entry="$entry">
-    <div class="py-1">
-        {!! $getState() !!}
-    </div>
-
-{{--    Load Tiptap Related CSS--}}
-    <x-filament-tiptap-style/>
-    {{-- --}}
-
-</x-dynamic-component>
-
-
+<div>
+    <!-- An unexamined life is not worth living. - Socrates -->
+</div>
 
 <style>
 
@@ -51,7 +42,7 @@
 
     @media (max-width: 640px) {
         /* This corresponds to theme('screens.sm') */
-        .filament-tiptap-grid-builder[data-stack-at="sm"] {
+    .filament-tiptap-grid-builder[data-stack-at="sm"] {
             grid-template-columns: 1fr !important;
 
             .filament-tiptap-grid-builder__column {
@@ -74,13 +65,13 @@
     @media (max-width: 1024px) {
         /* This corresponds to theme('screens.lg') */
         .filament-tiptap-grid-builder[data-stack-at="lg"] {
-            grid-template-columns: 1fr !important;
+                grid-template-columns: 1fr !important;
 
-            .filament-tiptap-grid-builder__column {
-                grid-column: span 1 !important;
+                .filament-tiptap-grid-builder__column {
+                    grid-column: span 1 !important;
+                }
             }
         }
-    }
 
     .filament-tiptap-grid[type="asymetric-right-thirds"] {
         @screen md {

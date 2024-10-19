@@ -1,15 +1,6 @@
-<x-dynamic-component :component="$getEntryWrapperView()" :entry="$entry">
-    <div class="py-1">
-        {!! $getState() !!}
-    </div>
-
-{{--    Load Tiptap Related CSS--}}
-    <x-filament-tiptap-style/>
-    {{-- --}}
-
-</x-dynamic-component>
-
-
+<div>
+    <!-- An unexamined life is not worth living. - Socrates -->
+</div>
 
 <style>
 
@@ -26,10 +17,9 @@
             box-sizing: border-box;
             border-style: dashed;
             border-width: 1px;
-            border-color: #9ca3af;      {{-- old value theme("colors.gray.400") --}}
+            border-color: theme("colors.gray.400");
             padding: 0.5rem;
-            /*border-radius: theme("borderRadius.DEFAULT");*/
-            border-radius: .25rem; /* Default radius is .375rem, but here it is set to .25rem */
+            border-radius: theme("borderRadius.DEFAULT");
 
             > * + * {
                 margin-block-start: 1rem;
@@ -37,10 +27,9 @@
         }
 
         &.ProseMirror-selectednode {
-            /*border-radius: theme("borderRadius.DEFAULT");*/
-            border-radius: .25rem; /* Default radius is .375rem, but here it is set to .25rem */
+            border-radius: theme("borderRadius.DEFAULT");
             outline-offset: 2px;
-            outline: #111827 dashed 2px;    {{-- old value theme("colors.gray.900") --}}
+            outline: theme("colors.gray.900") dashed 2px;
         }
     }
 
@@ -49,8 +38,7 @@
         grid-template-rows: auto;
     }
 
-    @media (max-width: 640px) {
-        /* This corresponds to theme('screens.sm') */
+    @media (max-width: theme('screens.sm')) {
         .filament-tiptap-grid-builder[data-stack-at="sm"] {
             grid-template-columns: 1fr !important;
 
@@ -60,8 +48,7 @@
         }
     }
 
-    @media (max-width: 768px) {
-        /* This corresponds to theme('screens.md') */
+    @media (max-width: theme('screens.md')) {
         .filament-tiptap-grid-builder[data-stack-at="md"] {
             grid-template-columns: 1fr !important;
 
@@ -71,8 +58,7 @@
         }
     }
 
-    @media (max-width: 1024px) {
-        /* This corresponds to theme('screens.lg') */
+    @media (max-width: theme('screens.lg')) {
         .filament-tiptap-grid-builder[data-stack-at="lg"] {
             grid-template-columns: 1fr !important;
 
@@ -162,11 +148,11 @@
     .dark {
         .filament-tiptap-grid {
             .filament-tiptap-grid__column {
-                border-color: #6b7280;      {{-- old value theme("colors.gray.500") --}}
+                border-color: theme("colors.gray.500");
             }
 
             &.ProseMirror-selectednode {
-                outline-color: #9ca3af;         {{-- old value theme("colors.gray.400") --}}
+                outline-color: theme("colors.gray.400");
             }
         }
     }
@@ -189,7 +175,7 @@
 
     table td,
     table th {
-        border: 1px solid #9ca3af;      {{-- old value theme("colors.gray.400") --}}
+        border: 1px solid theme("colors.gray.400");
         min-width: 1em;
         padding: 3px 5px;
         vertical-align: top;
@@ -202,8 +188,8 @@
     }
 
     table th {
-        background-color: #e5e7eb;      {{-- old value theme("colors.gray.200") --}}
-        color: #374151;     {{-- old value theme("colors.gray.700") --}}
+        background-color: theme("colors.gray.200");
+        color: theme("colors.gray.700");
         font-weight: 700;
         text-align: left;
     }
@@ -247,12 +233,12 @@
     .dark {
         table td,
         table th {
-            border-color: #4b5563;          {{-- old value theme("colors.gray.600") --}}
+            border-color: theme("colors.gray.600");
         }
 
         table th {
-            background-color: #1f2937;      {{-- old value theme("colors.gray.800") --}}
-            color: #f3f4f6;                 {{-- old value theme('colors.gray.100') --}}
+            background-color: theme("colors.gray.800");
+            color: theme('colors.gray.100');
         }
     }
 
@@ -274,7 +260,7 @@
     }
 
     code {
-        background-color: #d1d5db;      {{-- old value theme("colors.gray.300") --}}
+        background-color: theme("colors.gray.300");
         border-radius: 0.25rem;
         padding-inline: 0.25rem;
     }
@@ -289,7 +275,7 @@
 
     .dark {
         code {
-            background-color: #1f2937;  {{-- old value theme("colors.gray.800") --}}
+            background-color: theme("colors.gray.800");
         }
     }
 
@@ -303,10 +289,9 @@
         border: dashed 2px transparent;
 
         &.ProseMirror-selectednode {
-            /*border-radius: theme("borderRadius.DEFAULT");*/
-            border-radius: .25rem; /* Default radius is .375rem, but here it is set to .25rem */
+            border-radius: theme("borderRadius.DEFAULT");
             outline-offset: 2px;
-            outline: #111827 dashed 2px;        {{-- old value theme("colors.gray.900") --}}
+            outline: theme("colors.gray.900") dashed 2px;
         }
     }
 
@@ -318,7 +303,7 @@
 
     .dark {
         img.ProseMirror-selectednode {
-            outline-color: #9ca3af;     {{-- old value theme("colors.gray.400") --}}
+            outline-color: theme("colors.gray.400");
         }
     }
 
