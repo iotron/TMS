@@ -4,6 +4,7 @@ namespace App\Filament\Resources\Project\ProjectResource\Pages;
 
 use App\Casts\StatusCast;
 use App\Filament\Resources\Project\ProjectResource;
+use App\Filament\Resources\Project\ProjectResource\Widgets\TaskTimelineWidget;
 use App\Models\Project\Project;
 use App\Models\Project\Task;
 use Filament\Actions;
@@ -14,6 +15,7 @@ use Filament\Resources\Pages\ManageRelatedRecords;
 use Filament\Resources\Pages\Page;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Guava\Calendar\ValueObjects\Event;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -39,7 +41,7 @@ class ManageTaskTimeline extends ManageRelatedRecords
     protected function getHeaderWidgets(): array
     {
         return [
-            ProjectResource\Widgets\TaskTimelineWidget::class
+            TaskTimelineWidget::class
         ];
     }
 
