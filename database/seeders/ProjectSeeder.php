@@ -17,12 +17,17 @@ class ProjectSeeder extends Seeder
 
         $demoUser = User::firstWhere('email','user@example.com');
 
-        $demoProjects = Project::factory(10)
-            ->hasTasks(10,['user_id' => $demoUser->id])
+        $demoUser->assignRole('Project Admin');
+
+        $assignableUsers = User::whereNotIn('email', ['superadmin@example.com', 'user@example.com'])->get();
+
+
+        $demoProjects = Project::factory(5)
+            ->hasTasks(30,['user_id' => $demoUser->id])
             ->hasSprints(5)
             ->create()
-            ->each(function (Project $project) use($demoUser) {
-                $project->users()->attach($demoUser);
+            ->each(function (Project $project) use($assignableUsers) {
+                $project->users()->attach($assignableUsers->skip(1)->random(1));
             });
 
 

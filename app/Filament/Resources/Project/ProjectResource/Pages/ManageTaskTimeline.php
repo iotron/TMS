@@ -41,6 +41,7 @@ class ManageTaskTimeline extends ManageRelatedRecords
     protected function getHeaderWidgets(): array
     {
         return [
+            ProjectResource\Widgets\FullCalendarTimelineWidget::class,
             TaskTimelineWidget::class
         ];
     }

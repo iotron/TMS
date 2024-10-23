@@ -23,9 +23,11 @@ class TaskFactory extends Factory
             'url' => $this->faker->unique()->url,
             'description' => $this->faker->optional()->paragraph,
             'priority' => $this->faker->randomElement(PriorityCast::cases()),
-            'status' => $this->faker->randomElement(StatusCast::cases()),
-            'start' => $this->faker->optional()->dateTime,
-            'end' => $this->faker->optional()->dateTime,
+            'status' => fake()->randomElement(StatusCast::cases()),
+            'start' => $starOn = now()->subDays(rand(2,10)),
+            'end' => $starOn->addDays(rand(5,15)),
+            'created_at' => now()->subDays(rand(2,10)),
+
         ];
     }
 }

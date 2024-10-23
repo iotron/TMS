@@ -46,6 +46,13 @@ class Project extends Model
         return $this->hasMany(Sprint::class,'project_id','id');
     }
 
+
+    public function admin()
+    {
+        return $this->belongsTo(User::class,'user_id','id');
+    }
+
+
     public function users(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
         return $this->belongsToMany(User::class, 'project_user','project_id','user_id');
