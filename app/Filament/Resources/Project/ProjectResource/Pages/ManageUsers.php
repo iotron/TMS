@@ -54,8 +54,9 @@ class ManageUsers extends ManageRelatedRecords
                     ->preloadRecordSelect()
                     ->form(fn (Tables\Actions\AttachAction $action): array => [
                         $action->getRecordSelect()->placeholder('Select an user'),
-                        Forms\Components\Select::make('role')
-                            ->options([])
+                        Forms\Components\CheckboxList::make('role')
+                            ->relationship('roles','name')
+                            ->columns()
                             ->required(),
                     ]),
             ])
