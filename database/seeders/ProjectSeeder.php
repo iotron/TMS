@@ -17,7 +17,6 @@ class ProjectSeeder extends Seeder
 
         $demoUser = User::firstWhere('email','user@example.com');
 
-        $demoUser->assignRole('Project Admin');
 
         $assignableUsers = User::whereNotIn('email', ['superadmin@example.com', 'user@example.com'])->get();
 
