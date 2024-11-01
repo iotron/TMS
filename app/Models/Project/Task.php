@@ -29,6 +29,7 @@ class Task extends Model implements Eventable
         'end',
         'project_id',
         'user_id',
+        'sprint_id'
     ];
 
     // Casts for attributes
@@ -50,6 +51,12 @@ class Task extends Model implements Eventable
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class,'user_id','id');
+    }
+
+
+    public function sprint(): BelongsTo
+    {
+        return $this->belongsTo(Sprint::class,'sprint_id','id');
     }
 
 

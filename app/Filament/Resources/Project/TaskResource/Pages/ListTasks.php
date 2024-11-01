@@ -16,7 +16,7 @@ class ListTasks extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()->icon('heroicon-c-plus-circle'),
 
             Actions\Action::make('Kanban')->icon('heroicon-m-squares-2x2')
                 ->color('info')

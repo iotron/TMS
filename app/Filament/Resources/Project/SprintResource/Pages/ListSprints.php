@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\UserResource\Pages;
+namespace App\Filament\Resources\Project\SprintResource\Pages;
 
-use App\Filament\Resources\UserResource;
+use App\Filament\Resources\Project\SprintResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 
-class ListUsers extends ListRecords
+class ListSprints extends ListRecords
 {
-    protected static string $resource = UserResource::class;
+    protected static string $resource = SprintResource::class;
 
     protected function getHeaderActions(): array
     {
