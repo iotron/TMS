@@ -10,6 +10,7 @@
         "bezhansalleh/filament-shield": "^3.2",
         "filament/filament": "^3.2",
         "guava/calendar": "^1.8",
+        "iotronlab/tiptap-spatie-media": "dev-main",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
         "mokhosh/filament-kanban": "^2.9",
@@ -74,6 +75,15 @@
             "php-http/discovery": true
         }
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../packages/iotronlab/tiptap-spatie-media",
+            "options": {
+                "symlink": true
+            }
+        }
+    ],
     "prefer-stable": true
 }

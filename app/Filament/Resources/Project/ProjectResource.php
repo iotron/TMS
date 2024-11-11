@@ -15,9 +15,11 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use FilamentTiptapEditor\TiptapEditor;
+
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Resources\Pages\Page;
+use Iotronlab\FilamentEditor\FilamentEditor;
 
 class ProjectResource extends Resource
 {
@@ -58,6 +60,7 @@ class ProjectResource extends Resource
 
                 TiptapEditor::make('description')
                     ->columnSpanFull(),
+
 
                 Forms\Components\DateTimePicker::make('start'),
                 Forms\Components\DateTimePicker::make('end'),
